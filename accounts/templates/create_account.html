@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Создать аккаунт</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <p>Придумайте имя пользователя: {{ form.username }}</p>
+        <p>Укажите эл.почту: {{ form.email }}</p>
+        <p>Придумайте пароль: {{ form.password1 }}</p>
+        <p>Подтвердите пароль: {{ form.password2 }}</p>
+        <button type="submit">Создать аккаунт</button>
+    </form>
+</body>
+</html>

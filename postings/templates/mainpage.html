@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+
+{% if postings %}
+<h1>Все объявления:</h1>
+{% for posting in postings %}
+<div class="card" style="width:18rem;">
+    <img src="#" class="card-img-top" alt="Image">
+    <div class="card-body">
+        <h5 class="card-title">{{ posting.title }}</h5>
+        <p class="card-text">{{ posting.description|truncatechars:50 }}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{ posting.price }} ₽</li>
+        <li class="list-group-item">Разместил(-а): {{ posting.account.username }}</li>
+    </ul>
+</div>
+{% endfor %}
+{% else %}
+<h1>Объявлений не найдено.</h1>
+{% endif %}
+
+{% endblock %}
