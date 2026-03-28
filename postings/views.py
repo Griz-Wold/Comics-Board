@@ -10,7 +10,7 @@ def mainpage(request):
 @login_required
 def create_posting(request):
         if request.method=='POST':
-                form = PostingForm(request.POST)
+                form = PostingForm(request.POST, request.FILES)
                 if form.is_valid():
                         posting = form.save(commit=False)
                         posting.account = request.user

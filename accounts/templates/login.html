@@ -1,13 +1,25 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    <title>Вход в аккаунт</title>
-    </head>
-    <body>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Войти</button>
-        </form>
-    </body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Авторизация{% endblock %}
+
+{% block link %}{% endblock %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <div class="row px-3">
+        <div class="row mb-3">
+            <div class="col-form-label col-sm-2">Имя пользователя</div>
+            <div class="col-sm-2">{{ form.username }}</div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-form-label col-sm-2">Пароль</div>
+            <div class="col-sm-2">{{ form.password }}</div>
+        </div>
+        <div class="d grid gap-2 mb-3">
+            <button type="submit" class="btn btn-primary">Войти</button>
+        </div>
+        <p><a href="{% url 'create_account' %}">Создать аккаунт</a></p>
+    </div>
+</form>
+{% endblock %}

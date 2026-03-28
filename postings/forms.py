@@ -7,5 +7,6 @@ class PostingForm(ModelForm):
         fields = [
             'title',
             'description',
+            'image',
             'price'
         ]

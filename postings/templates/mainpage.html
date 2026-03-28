@@ -4,11 +4,16 @@
 
 {% block content %}
 
+<div class="row px-4">
 {% if postings %}
 <h1>Все объявления:</h1>
 {% for posting in postings %}
-<div class="card" style="width:18rem;">
+<div class="card mx-2 mb-2" style="width:18rem;">
+    {% if posting.image %}
+    <img src="{{ posting.image.url }}" style="width: 200px; height: 200px;">
+    {% else %}
     <img src="#" class="card-img-top" alt="Image">
+    {% endif %}
     <div class="card-body">
         <h5 class="card-title">{{ posting.title }}</h5>
         <p class="card-text">{{ posting.description|truncatechars:50 }}</p>
@@ -22,5 +27,6 @@
 {% else %}
 <h1>Объявлений не найдено.</h1>
 {% endif %}
+</div>
 
 {% endblock %}

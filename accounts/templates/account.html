@@ -1,21 +1,36 @@
 {% extends 'base.html' %}
 
-{% block title %}Аккаунт{% endblock %}
-
-{% block link %}{% endblock %}
+{% block title %}Мой аккаунт{% endblock %}
 
 {% block content %}
-<p>Имя пользователя: {{ username }}</p>
-{% if email %}
-<p>Email: {{ email }}</p>
-{% else %}
-<p>Email: данные не указаны</p>
-{% endif %}
-<img src="{{ avatar.url }}" style="width: 200px; height: 200px;">
-<p><a href="{% url 'create_posting' %}">Создать объявление</a></p>
-<form method="post" action="{% url 'logout' %}">
-    {% csrf_token %}
-    <button type="submit">Выйти из аккаунта</button>
-</form>
-
+<div class="col px-4 mb-4">
+    <div class="col-sm-3">
+        <img src="{{ avatar.url }}" style="height: 150px; width: 150px" class="rounded-circle">
+    </div>
+    <div class="col-sm-3">
+        <h3>Аккаунт: {{ username }}</h3>
+    </div>
+    <div class="col-sm-3">
+        <h4>Email: {{ email }}</h4>
+    </div>
+    <div class="d grid gap-2 mb-3">
+        <a href="{% url 'create_posting' %}" class="btn btn-primary">Новое объявление</a>
+    </div>
+    <div class="d grid gap-2 mb-3">
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Выйти</button>
+        </form>
+    </div>
+</div>
+<div class="col px-3">
+    {% if postings %}
+    <h4>Мои объявления</h4>
+    {% for posting in postings %}
+    <p>{{ posting.title }}</p>
+    {% endfor %}
+    {% else %}
+    <h3>Вы пока не опубликовали ни одного объявления</h3>
+    {% endif %}
+</div>
 {% endblock %}
