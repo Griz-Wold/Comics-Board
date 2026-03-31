@@ -1,5 +1,5 @@
 # Comics Board
-Web application built with Django for postings and browsing comic and manga ads.
+Web application built with Django for postings and browsing comic and manga ads with user authentication and image uploads.
 
 ## Features
 
@@ -13,7 +13,7 @@ Web application built with Django for postings and browsing comic and manga ads.
 - Create ads for comics and manga
 - View list of ads
 - View detailed page for each ad
-- Basic CRUD functionality for postings
+- Full CRUD functionality for postings
 
 ### General
 - Django templates for rendering pages
@@ -25,6 +25,7 @@ Web application built with Django for postings and browsing comic and manga ads.
 - Django
 - SQLite
 - HTML / CSS (templates)
+- Bootstrap
 
 ## Project structure
 - "accounts" - user registration, authentication and profile
