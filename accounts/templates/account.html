@@ -27,7 +27,8 @@
     {% if postings %}
     <h4>Мои объявления</h4>
     {% for posting in postings %}
-    <p>{{ posting.title }}</p>
+    <p><a href="{% url 'posting_detail' posting.id %}" class="link-underline link-underline-opacity-0 
+        link-underline-opacity-75-hover">{{ posting.title }}</a></p>
     {% endfor %}
     {% else %}
     <h3>Вы пока не опубликовали ни одного объявления</h3>

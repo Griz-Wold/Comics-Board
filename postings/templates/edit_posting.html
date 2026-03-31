@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Новое объявление{% endblock %}
+{% block title %}Редактировать объявление{% endblock %}
 
 {% block link %}{% endblock %}
 
@@ -9,24 +9,24 @@
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="row px-3">
-        <h2>Добавить новое объявление</h2>
+        <h2>Редактировать объявление {{ posting.title }}</h2>
         <div class="row mb-3">
-            <div class="col-form-label col-sm-2">Укажите название:</div>
+            <div class="col-form-label col-sm-2">Название:</div>
             <div class="col-sm-2">{{ form.title }}</div>
         </div>
         <div class="row mb-3">
-            <div class="col-form-label col-sm-2">Добавьте описание:</div>
+            <div class="col-form-label col-sm-2">Описание:</div>
             <div class="col-sm-2">{{ form.description }}</div>
         </div>
         <div class="row mb-3">
-            <div class="col-form-label col-sm-2">Укажите цену:</div>
+            <div class="col-form-label col-sm-2">Цена:</div>
             <div class="col-sm-2">{{ form.price }}</div>
         </div>
         <div class="row mb-3">
-            <div class="col-form-label col-sm-2">Добавьте фото:</div>
+            <div class="col-form-label col-sm-2">Изменить фото:</div>
             <div class="col-sm-2">{{ form.image }}</div>
         </div>
-        <div class="d grid gap-2 mb-3"><button type="submit" class="btn btn-primary">Разместить объявление</button></div>
+        <div class="d grid gap-2 mb-3"><button type="submit" class="btn btn-primary">Обновить объявление</button></div>
     </div>
 </form>
 

@@ -8,7 +8,7 @@ class Posting(models.Model):
     description = models.TextField(max_length=200, null=True, blank=True)
     price = models.IntegerField(validators=[MinValueValidator(0)])
     pub_date = models.DateField(auto_now_add=True)
-    image = models.ImageField(upload_to='images/', blank=True, null=True)
+    image = models.ImageField(upload_to='images/', default='images/default.png')
 
     def __str__(self):
         return self.title
